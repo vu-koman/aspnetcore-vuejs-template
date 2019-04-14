@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "build": "parcel build src/main.js -d wwwroot/dist --public-url /dist/ && dotnet publish -o publish",
+    "dev": "concurrently \"parcel watch src/main.js -d wwwroot/dist --public-url /dist/\" \"dotnet watch run\"",
+    "stop": "concurrently -k",
+    "stop-failed": "concurrently --kill-others-on-fail"
   },
   "dependencies": {
     "core-js": "^2.6.5",
@@ -16,8 +17,10 @@
     "@vue/cli-plugin-eslint": "^3.6.0",
     "@vue/cli-service": "^3.6.0",
     "babel-eslint": "^10.0.1",
+    "concurrently": "^4.1.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "parcel-bundler": "^1.12.3",
     "vue-template-compiler": "^2.5.21"
   },
   "eslintConfig": {

@@ -17,7 +17,7 @@ namespace aspnetcore_vuejs_template.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "Your application description page. 1";
 
             return View();
         }
